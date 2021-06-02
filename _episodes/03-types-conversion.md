@@ -35,7 +35,7 @@ keypoints:
     *   But remember: the *value* has the type --- the *variable* is just a label.
 
 ~~~
-print(type(52))
+print(type(39800000))
 ~~~
 {: .language-python}
 ~~~
@@ -44,8 +44,17 @@ print(type(52))
 {: .output}
 
 ~~~
-fitness = 'average'
-print(type(fitness))
+gdpPercap_2002 = 34077.04939
+print(type(gdpPercap_2002))
+~~~
+~~~
+<class 'float'>
+~~~
+{: .output}
+
+~~~
+country = 'Ireland'
+print(type(country))
 ~~~
 {: .language-python}
 ~~~
@@ -58,23 +67,25 @@ print(type(fitness))
 *   A value's type determines what the program can do to it.
 
 ~~~
-print(5 - 3)
+pop_2002 = 3980000
+pop_2007 = 4400000
+print(pop_2007 - pop_2002)
 ~~~
 {: .language-python}
 ~~~
-2
+420000
 ~~~
 {: .output}
 
 ~~~
-print('hello' - 'h')
+print('Australia' - 'tralia')
 ~~~
 {: .language-python}
 ~~~
 ---------------------------------------------------------------------------
 TypeError                                 Traceback (most recent call last)
 <ipython-input-2-67f5626a1e07> in <module>()
-----> 1 print('hello' - 'h')
+----> 1 print('Australia' - 'tralia')
 
 TypeError: unsupported operand type(s) for -: 'str' and 'str'
 ~~~
@@ -85,12 +96,12 @@ TypeError: unsupported operand type(s) for -: 'str' and 'str'
 *   "Adding" character strings concatenates them.
 
 ~~~
-full_name = 'Ahmed' + ' ' + 'Walsh'
+full_name = 'Republic' + ' of ' + 'Ireland'
 print(full_name)
 ~~~
 {: .language-python}
 ~~~
-Ahmed Walsh
+Republic of Ireland
 ~~~
 {: .output}
 
@@ -98,12 +109,16 @@ Ahmed Walsh
     *   Since multiplication is repeated addition.
 
 ~~~
-separator = '=' * 10
+separator = '=' * 25
+print(full_name)
 print(separator)
+print("Population 2002:", pop_2002)
 ~~~
 {: .language-python}
 ~~~
-==========
+Republic of Ireland
+=========================
+Population 2002: 3980000
 ~~~
 {: .output}
 
@@ -116,21 +131,21 @@ print(len(full_name))
 ~~~
 {: .language-python}
 ~~~
-11
+19
 ~~~
 {: .output}
 
 *   But numbers don't have a length (not even zero).
 
 ~~~
-print(len(52))
+print(len(pop_2002))
 ~~~
 {: .language-python}
 ~~~
 ---------------------------------------------------------------------------
 TypeError                                 Traceback (most recent call last)
 <ipython-input-3-f769e8e8097d> in <module>()
-----> 1 print(len(52))
+----> 1 print(len(pop_2002))
 
 TypeError: object of type 'int' has no len()
 ~~~
@@ -174,13 +189,22 @@ print(str(1) + '2')
     *   Python 3 automatically converts integers to floats as needed.
 
 ~~~
-print('half is', 1 / 2.0)
-print('three squared is', 3.0 ** 2)
+total_gdp = pop_2002 * gdpPercap_2002 
+print(total_gdp)
 ~~~
 {: .language-python}
 ~~~
-half is 0.5
-three squared is 9.0
+135626656572.2
+~~~
+{: .output}
+
+~~~
+gdp_billions = total_gdp / (10**9)
+print("Ireland's 2002 GDP in billions:", gdp_billions)
+~~~
+{: .language-python}
+~~~
+Ireland's 2002 GDP in billions: 135.6266565722
 ~~~
 {: .output}
 
